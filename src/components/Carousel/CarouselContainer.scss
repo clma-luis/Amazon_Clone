@@ -1,0 +1,60 @@
+.carousel {
+  width: 100%;
+  min-width: 400px;
+  height: 600px;
+  overflow: hidden;
+
+  .carousel__item {
+    height: inherit;
+    position: relative;
+
+    a {
+      text-decoration: none;
+    }
+
+    .carousel__img {
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        transition: 2000ms;
+      }
+    }
+
+    .carousel__rows {
+      position: absolute;
+      top: 20%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px 0px 20px;
+
+      .icon {
+        color: black;
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+#corousel__item-1 {
+  background-color: rgb(236, 236, 63);
+}
+
+#corousel__item-2 {
+  background-color: rgb(211, 62, 211);
+}
+
+#corousel__item-3 {
+  background-color: rgb(40, 182, 182);
+}
+
+#corousel__item-4 {
+  background-color: rgb(182, 40, 47);
+}
+
+#corousel__item-5 {
+  background-color: rgb(182, 137, 40);
+}

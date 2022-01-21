@@ -1,0 +1,46 @@
+.SubHeader {
+  width: 100vw;
+  min-width: 400px;
+  height: 50px;
+  background: #232f3e;
+  color: white;
+  font-weight: 500;
+
+  .SubHeader__margin {
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 15px;
+
+    .MenuOutlinedIcon {
+      padding-top: 3px;
+
+      .icon {
+        font-size: 2.8rem;
+        margin-right: 2px;
+      }
+
+      span{
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .SubHeader__menu {
+    font-size: 1.4rem;
+    margin: 0px 10px 0px 5px;
+    padding: 5px;
+    display: flex;
+    border: 1px solid #232f3e;
+  }
+
+  .SubHeader__menu:hover{
+    border: 1px solid white;
+  }
+
+  .isActive{
+      color: white;
+      text-decoration: none;
+  }
+}
