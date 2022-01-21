@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "AmazonEmber";
+  src: url('../template/font/AmazonEmber_Rg.ttf') format('truetype');
+}
+
+
 html{
     font-size: 62.5%;
 }
@@ -6,7 +12,7 @@ html{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Quicksand", sans-serif;
+    font-family: "AmazonEmber", "Quicksand", sans-serif;
     
   }
 

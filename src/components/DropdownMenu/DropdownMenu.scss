@@ -1,3 +1,5 @@
+@import url(../../Styles/_vars.scss);
+
 .dropdown__menu {
   height: 100vh;
   font-size: 10px;
@@ -8,7 +10,7 @@
   .dropdown__menu-left {
     width: 80vw;
     background-color: white;
-    border-right: 0.5px solid white ;
+    border-right: 0.5px solid white;
 
     .dropdown__menu-box1 {
       color: white;
@@ -40,12 +42,18 @@
         align-items: flex-end;
         margin-left: 2em;
         margin-bottom: 1em;
-        font-weight: 100;
-
-        span {
-          font-size: 1.5rem;
-          font-weight: 900;
+        
+        h1{
+          font-family: "AmazonEmber2";
+          font-size: 3rem;
+          span {
+            
+            font-weight: bold;
+          font-size: 1.9rem;
+         
         }
+        }
+        
       }
     }
 
@@ -116,22 +124,18 @@
           font-size: 1.4rem;
           color: #151515;
           margin-left: 2rem;
-
-         
-
-         
         }
 
-        .menu.active{
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.4rem;
-            color: #151515;
+        .menu.active {
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.4rem;
+          color: #151515;
 
-           .row-icon{
-               color: #95A1A2;
+          .row-icon {
+            color: #95a1a2;
             margin-right: 2rem;
-        }
+          }
         }
       }
     }
@@ -143,7 +147,6 @@
     background-color: rgba(0, 0, 0, 0.733);
     width: 20vw;
 
-
     .button-icon {
       color: white;
       margin-top: 3em;
@@ -154,3 +157,5 @@
     }
   }
 }
+
+

@@ -148,6 +148,10 @@
   text-decoration: none;
 }
 
+.header__dropdown__menu {
+  display: none;
+}
+
 @media screen and (max-width: 1000px) {
   .header {
     font-size: 9.5px;
@@ -242,7 +246,7 @@
         min-width: 10px;
         max-width: 90%;
         position: fixed;
-        top: 8.7%;
+        top: 8%;
         left: 5%;
       }
 
@@ -256,15 +260,25 @@
       }
     }
     .header__dropdown__menu {
-      
-      position: absolute ;
+      display: block;
+      position: absolute;
       top: 0;
-      right: 0;
-      width: 100vw ;
+      left: -100%;
+      width: 100vw;
+      opacity: 1;
+      transition: all 0.5s ease;
       min-width: 300px;
-      z-index: 100;
       width: 100%;
-    
+      z-index: 100;
     }
+
+
+    .header__dropdown__menu.active{
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 100;
+    }
+
   }
 }

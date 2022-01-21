@@ -4,7 +4,6 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
-import CloseIcon from "@material-ui/icons/Close";
 import { NavLink } from "react-router-dom";
 import usaflag from "../../template/images/usa-flag.png";
 
@@ -81,12 +80,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="header__dropdown__menu">
-        {state ? (
-          <DropdownMenu className="header__dropdown__menu-item active" />
-        ) : (
-          ""
-        )}
+      <div className={state ? "header__dropdown__menu active" : "header__dropdown__menu"}>
+        
+          <DropdownMenu actionToPerform={ handleClick }/>
+        
       </div>
     </div>
   );
