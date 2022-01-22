@@ -1,0 +1,117 @@
+@import url(../../Styles/_vars.scss);
+
+.subMenuR {
+  font-size: 10px;
+  position: relative;
+  width: 0;
+  height: 90vh;
+  display: flex;
+  justify-content: flex-end;
+
+  .subMenuR__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #151515;
+    position: absolute;
+    top: -6px;
+    right: 120px;
+    width: 50em;
+    height: 42em;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+
+    .subMenuR__button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 9em;
+
+      button {
+        font-size: 1.4em;
+        width: 15em;
+        height: 2.5em;
+        border: 1px solid #b0820f;
+        border-radius: 5px;
+        background-image: linear-gradient(
+          180deg,
+          #fafaca 0,
+          #fde488 25%,
+          #eccd8f 50%,
+          #daba8a 75%,
+          #cea87a 100%
+        );
+      }
+      p {
+        display: flex;
+        justify-content: center;
+        font-size: 1.2em;
+        margin-top: 5px;
+
+        .start-here {
+            margin-left: 5px;
+            color: #3a89ce;
+          text-decoration: none;
+        }
+
+      }
+    }
+
+    .subMenuR__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+
+      .subMenuR__yourList{
+          
+
+        span{
+            font-size: 1.7em;
+            font-weight: bold; 
+        }
+
+        ul{
+            margin-top: 1.5em;
+            li{
+                font-size: 1.2em;
+                list-style: none;
+                margin-bottom: 1rem;
+            }
+        }
+      }
+
+      .subMenuR__yourAccount{
+
+        span{
+            font-size: 1.7em;
+            font-weight: bold;  
+        }
+
+        ul{
+            margin-top: 1.5em;
+            li{
+                font-size: 1.2em;
+                list-style: none;
+                margin-bottom: 1rem;
+            }
+        }
+
+      }
+    }
+  }
+}
+
+.subMenuR__list:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid white;
+  position: absolute;
+  top: -10px;
+  right: 38px;
+}

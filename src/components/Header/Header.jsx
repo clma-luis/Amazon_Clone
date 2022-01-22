@@ -8,21 +8,25 @@ import { NavLink } from "react-router-dom";
 import usaflag from "../../template/images/usa-flag.png";
 
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import SubMenuL from "../SubMenuL/SubMenuL"
+import SubMenuR from "../SubMenuR/SubMenuR"
 
 import "./Header.scss";
 
 const Header = () => {
-  const [state, setState] = useState(false);
+  const [click, setClick] = useState(false);
+  const [hover, setHover] = useState(false)
+  const [signHover, setSignHover] = useState(false)
 
-  const handleClick = () => {
-    setState(!state);
-  };
+
+
+
   return (
     <div className="Header">
       <div className="header">
-        <div className="header__menuIcon" onClick={handleClick}>
+        <div className="header__menuIcon" onClick={() => {setClick(!click)}}>
           <i>
-            {state ? (
+            {click ? (
               <MenuOutlinedIcon className="icon" />
             ) : (
               <MenuOutlinedIcon className="icon" />
@@ -52,19 +56,30 @@ const Header = () => {
         </div>
 
         <div className="header__nav">
-          <div className="header__option header__flag">
+          <div className={hover || signHover ? "background-hidden active" : "background-hidden"}></div>
+          <div className="header__option header__flag" onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
             <span className="header__optionLineOne ">
               <img className="header__flag-img" src={usaflag} alt="" />
             </span>
             <span className="header__optionLineTwo">
               <ArrowDropDownIcon className="arrow_icon" />
             </span>
+
+            <span className={hover ? "submenu__lenguage active" : "submenu__lenguage"}>
+            <SubMenuL/>
+            </span>
+
+            
           </div>
 
-          <div className="header__option">
+          <div className="header__option" onMouseEnter={() => {setSignHover(!signHover)}} onMouseLeave={() => {setSignHover(false)}}>
             <span className="header__optionLineOne">Hello Guest,</span>
 
             <span className="header__optionLineTwo">Sign In</span>
+
+            <span className={signHover ? "submenu__SignIn active" : "submenu__SignIn"}>
+              <SubMenuR/>
+            </span>
           </div>
 
           <div className="header__option return__orders">
@@ -80,11 +95,15 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className={state ? "header__dropdown__menu active" : "header__dropdown__menu"}>
+      <div className={click ? "header__dropdown__menu active" : "header__dropdown__menu"}>
         
-          <DropdownMenu actionToPerform={ handleClick }/>
+          <DropdownMenu actionToPerform={ () => {setClick(!click)} }/>
         
       </div>
+
+  
+
+     
     </div>
   );
 };

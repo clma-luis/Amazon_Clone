@@ -88,6 +88,7 @@
 }
 
 .header__nav {
+  position: relative;
   width: auto;
   min-width: 10em;
   display: flex;
@@ -101,6 +102,21 @@
     padding: 4px;
     color: white;
     border: 0.5px solid #131921;
+
+    .submenu__SignIn {
+      position: absolute;
+      top: 53px;
+      right: 0px;
+      visibility: hidden;
+      transition: all 100ms ease;
+      opacity: 1;
+    }
+  
+    .submenu__SignIn.active {
+      visibility: visible;
+      transition: all 100ms ease;
+      opacity: 1;
+    }
 
     .header__optionLineOne {
       font-size: 1em;
@@ -138,6 +154,36 @@
   flex-direction: row;
   align-items: flex-end;
   color: #a7acb2;
+
+  .submenu__lenguage {
+    position: absolute;
+    top: 53px;
+    right: 0px;
+    visibility: hidden;
+    transition: all 100ms ease;
+    opacity: 1;
+  }
+
+  .submenu__lenguage.active {
+    visibility: visible;
+    transition: all 200ms ease;
+  }
+}
+
+.background-hidden {
+  position: absolute;
+  top: 59px;
+  right: 0;
+  width: 100vw;
+  height: 91.5vh;
+  background-color: rgba(0, 0, 0, 0.733);
+  visibility: hidden;
+  transition: all 100ms ease;
+}
+
+.background-hidden.active {
+  visibility: visible;
+  transition: all 100ms ease;
 }
 
 .header__flag-img {
@@ -272,13 +318,11 @@
       z-index: 100;
     }
 
-
-    .header__dropdown__menu.active{
-        left: 0;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 100;
+    .header__dropdown__menu.active {
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 100;
     }
-
   }
 }
