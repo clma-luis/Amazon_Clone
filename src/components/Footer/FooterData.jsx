@@ -1,4 +1,4 @@
-export const footerData = [
+export const FooterData = [
   {
     title: "Amazon Music",
     info: "Stram millions of songs",

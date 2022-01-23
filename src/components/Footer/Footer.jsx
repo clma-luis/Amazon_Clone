@@ -4,6 +4,7 @@ import LanguageIcon from "@material-ui/icons/Language";
 import ArrowDropDownSharpIcon from "@material-ui/icons/ArrowDropDownSharp";
 import ArrowDropUpSharpIcon from "@material-ui/icons/ArrowDropUpSharp";
 import usaflag from "../../template/images/usa-flag.png";
+import { FooterData } from "./FooterData";
 
 import "./Footer.scss";
 
@@ -91,11 +92,31 @@ const Footer = () => {
             </div>
 
             <div className="footer__amazon-flag">
-              <span className="icon-usaflag"><img src={usaflag} alt="usa-flag" /></span>
+              <span className="icon-usaflag">
+                <img src={usaflag} alt="usa-flag" />
+              </span>
               <span>&nbsp;&nbsp;&nbsp;United States</span>
             </div>
           </div>
         </div>
+        <div className="footer__links">
+          {FooterData.map((item, index) => {
+            return (
+              <div className="footer__item">
+                <a href={item._url} target="_blank" rel="noreferrer">
+                  <span className="title">{item.title}</span>
+                  <span className="info">{item.info}</span>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+         <div className="footer__endLink">
+          <span>Condition of Use</span>
+          <span>Privacy Notice</span>
+          <span>Interest-Based Ads</span>
+          <span className="copyrigth">© 1996-2022 <br/> Amazon.com, Inc. or its affiliates </span>
+        </div> 
       </div>
     </div>
   );

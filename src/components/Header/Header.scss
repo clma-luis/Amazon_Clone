@@ -328,6 +328,8 @@
         visibility: hidden;
       }
     }
+
+    
   }
 }
 
@@ -354,12 +356,16 @@
       }
 
       .header__search {
+        position: absolute;
         width: 100%;
-        min-width: 10px;
-        max-width: 90%;
-        position: fixed;
-        top: 8%;
-        left: 5%;
+        top: 100%;
+        left: 0%;
+        z-index: 100;
+      
+        .header__searchInput{
+          width: 100%;
+          min-width: 29rem;
+        }
       }
 
       .header__nav {
