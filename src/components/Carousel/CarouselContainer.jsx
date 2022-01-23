@@ -1,118 +1,56 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
-import "./CarouselContainer.scss";
+import React, { useState } from "react";
+import { SliderData } from "./SliderData";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-const CarouselContainer = () => {
+import "./CarouselContainer.scss";
 
+const CarouselContainer = ({ slides }) => {
+  const [current, setCurrent] = useState(0);
+  const length = SliderData.length;
+
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  console.log(current);
+
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null;
+  }
 
   return (
-    <div className="carousel" id="">
-      <div className="carousel__item" id="corousel__item-1">
-        <Link to="/">
-          <div className="carousel__img" id="carousel__img-1">
-            <img
-              src="https://m.media-amazon.com/images/I/61dmivPGQ8L._SX3000_.jpg"
-              alt="carousel_img-1"
-            />
-          </div>
-        </Link>
-
-        <div className="carousel__rows">
-          <a href="#corousel__item-5">
-            <ArrowBackIosIcon className="icon" />
-          </a>
-
-          <a href="#corousel__item-2">
-            <ArrowForwardIosIcon className="icon" />
-          </a>
-        </div>
-
-        <div className="banner--fadeBottom"/>
+    <div className="carousel">
+      <div className="carousel__arrowBack" onClick={prevSlide}>
+        <ArrowBackIosIcon className="icon" />
       </div>
 
-      <div className="carousel__item" id="corousel__item-2">
-        <Link to="/">
-          <div className="carousel__img" id="carousel__img-2">
-            <img
-              src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg"
-              alt="carousel_img-2"
-            />
-          </div>
-        </Link>
-        <div className="carousel__rows">
-          <a href="#corousel__item-1">
-            <ArrowBackIosIcon className="icon" />
-          </a>
-
-          <a href="#corousel__item-3">
-            <ArrowForwardIosIcon className="icon" />
-          </a>
-        </div>
-        <div className="banner--fadeBottom"/>
+      <div className="carousel__arrowForward" onClick={nextSlide}>
+        <ArrowForwardIosIcon className="icon" />
       </div>
 
-      <div className="carousel__item" id="corousel__item-3">
-        <Link to="/">
-          <div className="carousel__img" id="carousel__img-3">
-            <img
-              src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg"
-              alt="carousel_img-3"
-            />
+      {SliderData.map((slide, index) => {
+        return (
+          <div
+            className={index === current ? "slide active" : "slide"}
+            key={index}
+          >
+            
+            {index === current && (
+              <img
+                className="carousel-images"
+                src={slide.image}
+                alt={slide.info}
+              />
+            )}
+            ;
           </div>
-        </Link>
-        <div className="carousel__rows">
-          <a href="#corousel__item-2">
-            <ArrowBackIosIcon className="icon" />
-          </a>
-
-          <a href="#corousel__item-4">
-            <ArrowForwardIosIcon className="icon" />
-          </a>
-        </div>
-        <div className="banner--fadeBottom"/>
-      </div>
-
-      <div className="carousel__item" id="corousel__item-4">
-        <Link to="/">
-          <div className="carousel__img" id="carousel__img-4">
-            <img
-              src="https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg"
-              alt=""
-            />
-          </div>
-        </Link>
-        <div className="carousel__rows">
-          <a href="#corousel__item-3">
-            <ArrowBackIosIcon className="icon" />
-          </a>
-
-          <a href="#corousel__item-5">
-            <ArrowForwardIosIcon className="icon" />
-          </a>
-        </div>
-        <div className="banner--fadeBottom"/>
-      </div>
-
-      <div className="carousel__item" id="corousel__item-5">
-        <Link to="/">
-          <div className="carousel__img" id="carousel__img-5">
-            <img
-              src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg"
-              alt=""
-            />
-          </div>
-        </Link>
-        <div className="carousel__rows">
-          <a href="#corousel__item-4">
-            <ArrowBackIosIcon className="icon" />
-          </a>
-
-          <a href="#corousel__item-1">
-            <ArrowForwardIosIcon className="icon" />
-          </a>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };

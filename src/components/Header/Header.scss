@@ -1,6 +1,6 @@
 .header {
   font-size: 10px;
-  height: 7.5em;
+  height: 7.4em;
   display: flex;
   align-items: center;
   background-color: #131921;
@@ -85,6 +85,25 @@
       border-radius: 0px 5px 5px 0px;
     }
   }
+
+  .header__minisign_menu {
+    visibility: hidden;
+    position: absolute;
+    top: 38px;
+    transition: visibility 1s;
+    transition-timing-function: ease-in-out;
+    width: 100%;
+  }
+
+  .header__minisign_menu.active {
+    visibility: visible;
+    left: 0;
+    opacity: 1;
+    transition: visibility 1s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.5s;
+    z-index: 100;
+  }
 }
 
 .header__nav {
@@ -111,7 +130,7 @@
       transition: all 100ms ease;
       opacity: 1;
     }
-  
+
     .submenu__SignIn.active {
       visibility: visible;
       transition: all 100ms ease;
@@ -204,7 +223,26 @@
 
     .header__nav {
       font-size: 9px;
+
+      .background-hidden {
+        top: 55px;
+        height: 91vh;
+      }
+
+      .background-hidden.active {
+        top: 55px;
+        height: 91vh;
+      }
     }
+
+    .header__minisign_menu{
+      display: none;
+    }
+
+    .header__minisign_menu.active{
+      display: none;
+    }
+
   }
 }
 
@@ -214,7 +252,19 @@
 
     .header__nav {
       font-size: 9px;
+
+      .background-hidden {
+        top: 54px;
+        height: 91vh;
+      }
+
+      .background-hidden.active {
+        top: 54px;
+        height: 91vh;
+      }
     }
+
+    
   }
 }
 
@@ -258,8 +308,24 @@
     }
 
     .header__nav {
+      .background-hidden {
+        visibility: hidden;
+      }
+
+      .background-hidden.active {
+        visibility: hidden;
+      }
+
       .header__option.header__flag {
         display: none;
+      }
+
+      .submenu__SignIn {
+        visibility: hidden;
+      }
+
+      .submenu__SignIn.active {
+        visibility: hidden;
       }
     }
   }

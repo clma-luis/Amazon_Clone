@@ -1,0 +1,159 @@
+@import url(../../Styles/_vars.scss);
+
+.dropdown__menudesktop {
+  height: 100vh;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .dropdown__menu-left {
+    width: 28vw;
+    background-color: white;
+    border-right: 0.5px solid white;
+
+    .dropdown__menu-box1 {
+      color: white;
+      height: 11em;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      background-color: #232f3e;
+
+      .dropdown__menu-item.profile {
+        margin-right: 2em;
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        margin: 10px;
+
+        span {
+          margin-top: 0.7rem;
+        }
+
+        .icon__profile {
+          font-size: 2em;
+        }
+      }
+
+      .dropdown__menu-item.title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        margin-left: 2em;
+        margin-bottom: 1em;
+
+        h1 {
+          font-family: "AmazonEmber2";
+          font-size: 3rem;
+          span {
+            font-weight: bold;
+            font-size: 1.9rem;
+          }
+        }
+      }
+    }
+    .scroll {
+    overflow-y: scroll;
+      .dropdown__menu-box2 {
+        font-size: 1rem;
+        color: #151515;
+        height: 5.5em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-bottom: 3px solid #d5dbdb;
+
+        h3 {
+          font-size: 1.8rem;
+          color: #151515;
+          margin-left: 2rem;
+        }
+
+        .home-icon {
+          font-size: 2.5rem;
+          color: #151515;
+          margin-right: 1.5rem;
+        }
+      }
+
+      .dropdown__menu-box3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 10em;
+        background-color: white;
+        border-bottom: 3px solid #d5dbdb;
+
+        h3 {
+          font-size: 1.8rem;
+          color: #151515;
+          margin-left: 2rem;
+        }
+
+        span {
+          font-size: 1.4rem;
+          color: #151515;
+          margin-left: 2rem;
+        }
+      }
+
+      .dropdown__menu-box4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 28em;
+        background-color: white;
+
+        h3 {
+          font-size: 1.8rem;
+          color: #151515;
+          margin-left: 2rem;
+        }
+
+        .menu-options {
+          height: 18em;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          span {
+            font-size: 1.4rem;
+            color: #151515;
+            margin-left: 2rem;
+          }
+
+          .menu.active {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            color: #151515;
+
+            .row-icon {
+              color: #95a1a2;
+              margin-right: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown__menu-right {
+    display: flex;
+    justify-content: flex-start;
+    height: 6vh;
+    width: 5vw;
+
+    .button-icon {
+      color: white;
+      margin-top: 0.8em;
+      margin-left: 1em;
+
+      .closeicon {
+        font-size: 3.5em;
+      }
+    }
+  }
+}

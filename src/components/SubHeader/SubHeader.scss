@@ -1,5 +1,6 @@
 .SubHeader {
-  width: 100vw;
+  position: relative;
+  width: 100%;
   min-width: 400px;
   height: 50px;
   background: #232f3e;
@@ -7,25 +8,75 @@
   font-weight: 500;
 
   .SubHeader__margin {
-    height: 40px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 15px;
+     overflow-y: hidden;
+      overflow-x: scroll;
 
-    .MenuOutlinedIcon {
-      padding-top: 3px;
-
-      .icon {
-        font-size: 2.8rem;
-        margin-right: 2px;
+    .subheader__list1{
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 15px;
+    
+      padding-bottom: 10px;
+  
+      .MenuOutlinedIcon {
+        padding-top: 3px;
+  
+        .icon {
+          font-size: 2.8rem;
+          margin-right: 2px;
+        }
+  
+        span {
+          padding-top: 5px;
+        }
       }
 
-      span{
-        padding-top: 5px;
+      .SubHeader__menu{
+        font-size: 1.6rem;
       }
+
+    }
+
+    .subheader__list1::-webkit-scrollbar {
+      display: none;
+    }
+
+    .subheader__list2{
+      display: none;
+      height: 50px;
+      width: 100%;
+      min-width: 600px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+     
+      ul{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        padding-top: 12px;
+        
+        li{
+          display: flex;
+          flex-direction: row;
+          font-size: 1.6rem;
+          list-style: none;
+          margin-left: 2rem;
+        }
+  
+      }
+  
+    }
+
+    .subheader__list2::-webkit-scrollbar {
+      display: none;
     }
   }
+
+
 
   .SubHeader__menu {
     font-size: 1.4rem;
@@ -35,12 +86,155 @@
     border: 1px solid #232f3e;
   }
 
-  .SubHeader__menu:hover{
+  .SubHeader__menu:hover {
     border: 1px solid white;
   }
 
-  .isActive{
-      color: white;
-      text-decoration: none;
+  .isActive {
+    color: white;
+    text-decoration: none;
   }
+
+  .header__dropdown__menu {
+    display: block;
+    position: absolute;
+    left: -100%;
+    top: -75px;
+    z-index: 101;
+    transition: all 0.5s ease;
+  }
+
+  .header__dropdown__menu.active {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    visibility: visible;
+    z-index: 101;
+  }
+
+  .background-hidden {
+    position: absolute;
+    top: -75px;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.733);
+    visibility: hidden;
+    transition: all 300ms ease;
+    z-index: 100;
+  }
+
+  .background-hidden.active {
+    visibility: visible;
+    transition: all 300ms ease;
+  }
+
+  .SubHeader__margin::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+}
+
+@media screen and (max-width: 850px) {
+  .SubHeader {
+    
+    .SubHeader__margin{
+      .all-menu{
+        display: none;
+      }
+    }
+    .header__dropdown__menu {
+      display: none;
+    }
+
+    .header__dropdown__menu.active {
+      display: none;
+    }
+
+    .background-hidden{
+      display: none;
+    }
+
+    .background-hidden.active{
+      display: none;
+    }
+
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .SubHeader {
+    position: relative;
+    width: 100%;
+
+    .SubHeader__margin {
+
+      .subheader__list1{
+        display: none;
+      }
+
+      .subheader__list2{
+        display: block;
+
+        ul{
+          margin-left: 2px;
+          margin-right: 10px;
+          width: 180%
+        }
+      }
+
+    }
+
+  }
+
+
+}
+
+@media screen and (max-width: 675px) {
+  .SubHeader {
+    .SubHeader__margin {
+
+      .subheader__list2{
+
+
+        ul{
+          margin-left: 2px;
+          margin-right: 10px;
+          width: 200%
+        }
+      }
+
+    }
+
+  }
+
+
+}
+
+@media screen and (max-width: 576px) {
+
+  .SubHeader {
+    min-width: 350px;
+    .SubHeader__margin {
+
+      .subheader__list2{
+      height: 50px;
+      min-width: 400px;
+
+
+
+        ul{
+          margin-left: 2px;
+          margin-right: 15px;
+          width: 300%
+        }
+        
+      }
+
+    }
+
+  }
+
 }

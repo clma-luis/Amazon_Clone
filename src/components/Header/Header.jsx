@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
@@ -8,23 +8,35 @@ import { NavLink } from "react-router-dom";
 import usaflag from "../../template/images/usa-flag.png";
 
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
-import SubMenuL from "../SubMenuL/SubMenuL"
-import SubMenuR from "../SubMenuR/SubMenuR"
+import SubMenuL from "../SubMenuL/SubMenuL";
+import SubMenuR from "../SubMenuR/SubMenuR";
+import MiniSignIn from "../MiniSignIn/MiniSignIn";
 
 import "./Header.scss";
 
 const Header = () => {
   const [click, setClick] = useState(false);
-  const [hover, setHover] = useState(false)
-  const [signHover, setSignHover] = useState(false)
+  const [hover, setHover] = useState(false);
+  const [signHover, setSignHover] = useState(false);
+  const [effect, setEffect] = useState(false);
 
+  useEffect(() => {
+    setEffect(!effect);
 
-
+    setTimeout(()=>{
+      setEffect(effect);
+    }, 2000)
+  }, []);
 
   return (
     <div className="Header">
       <div className="header">
-        <div className="header__menuIcon" onClick={() => {setClick(!click)}}>
+        <div
+          className="header__menuIcon"
+          onClick={() => {
+            setClick(!click);
+          }}
+        >
           <i>
             {click ? (
               <MenuOutlinedIcon className="icon" />
@@ -56,8 +68,22 @@ const Header = () => {
         </div>
 
         <div className="header__nav">
-          <div className={hover || signHover ? "background-hidden active" : "background-hidden"}></div>
-          <div className="header__option header__flag" onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
+          <div
+            className={
+              hover || signHover
+                ? "background-hidden active"
+                : "background-hidden"
+            }
+          ></div>
+          <div
+            className="header__option header__flag"
+            onMouseEnter={() => {
+              setHover(true);
+            }}
+            onMouseLeave={() => {
+              setHover(false);
+            }}
+          >
             <span className="header__optionLineOne ">
               <img className="header__flag-img" src={usaflag} alt="" />
             </span>
@@ -65,20 +91,34 @@ const Header = () => {
               <ArrowDropDownIcon className="arrow_icon" />
             </span>
 
-            <span className={hover ? "submenu__lenguage active" : "submenu__lenguage"}>
-            <SubMenuL/>
+            <span
+              className={
+                hover ? "submenu__lenguage active" : "submenu__lenguage"
+              }
+            >
+              <SubMenuL />
             </span>
-
-            
           </div>
 
-          <div className="header__option" onMouseEnter={() => {setSignHover(!signHover)}} onMouseLeave={() => {setSignHover(false)}}>
+          <div
+            className="header__option"
+            onMouseEnter={() => {
+              setSignHover(!signHover);
+            }}
+            onMouseLeave={() => {
+              setSignHover(false);
+            }}
+          >
             <span className="header__optionLineOne">Hello Guest,</span>
 
             <span className="header__optionLineTwo">Sign In</span>
 
-            <span className={signHover ? "submenu__SignIn active" : "submenu__SignIn"}>
-              <SubMenuR/>
+            <span
+              className={
+                signHover ? "submenu__SignIn active" : "submenu__SignIn"
+              }
+            >
+              <SubMenuR />
             </span>
           </div>
 
@@ -94,16 +134,26 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className={click ? "header__dropdown__menu active" : "header__dropdown__menu"}>
-        
-          <DropdownMenu actionToPerform={ () => {setClick(!click)} }/>
-        
-      </div>
 
-  
-
-     
+        <div
+          className={
+            effect ? "header__minisign_menu active" : "header__minisign_menu"
+          }
+        >
+          <MiniSignIn />
+        </div>
+      </div>
+      <div
+        className={
+          click ? "header__dropdown__menu active" : "header__dropdown__menu"
+        }
+      >
+        <DropdownMenu
+          actionToPerform={() => {
+            setClick(!click);
+          }}
+        />
+      </div>
     </div>
   );
 };
