@@ -1,44 +1,105 @@
-.productpost{
+.product{
     font-size: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    margin: 10px;
-    padding: 20px;
+    justify-content: flex-start;
+    margin: 10px auto;
     width: 100%;
-    max-height: 400px;
+    max-height: 600px;
     min-width: 100px;
-    background-color: rgb(239, 235, 235);
+    max-width: 308px;
+    background-color: white;
     z-index: 1;
 
-    .productpost__items{
+
+    .product__post{
+        width: 100%;
+        max-width: 308px;
+        padding: 8px;
         display: grid;
         grid-template-rows: repeat(auto-fit, minmax(150px, fr1));
-        gap: 10px;
+        gap: 5px;
+        background-color: rgb(238, 236, 236);
+        
 
-        h2{
-            font-size: 2.2em;
-        }
-        img{
-            width: 25em;
+        .isActive {
+            list-style: none;
+            color: #0F1111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            
+
+            .product__img{
+            width: 16em;
             height: 30em;
-            object-fit: cover;
+            object-fit: contain;
+            }
+
+
+            .product__title{
+                color: #0F1111;
+                font-size: 1.6em;
+        
+            }
         }
 
-        .isActive{
-            text-decoration: none;
+
+        .product__rating{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            .star{
+
+                .star-img{
+                    width: 2em;
+                }
+
+            }
+
+            .arrow-vote{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+
+                .arrow-icon{
+                    font-size: 1.8em;
+
+                    color: #6C7069;
+                }
+                
+                .vote{
+                    color: #42A5D0;
+                    font-size: 1.4em;
+                    cursor: pointer;
+                    user-select: none;
+                }
+
+                .vote:hover{
+                    color: #c7511f;
+                    text-decoration: underline #c7511f;
+                }
+            }
+
+        }
+
+        .price{
+            font-size: 2.1em;
+        }
+
+        p{
+            font-size: 1.3em;
+            color: #6C7069;
 
             span{
-           font-size:  1.3em;
-           color: #278798;
-           text-decoration: none;
+                font-weight: bold;
+            }
         }
-        span:hover{
-            color: #ce6539;
-            text-decoration: underline #ce6539;;
-        } 
-        }
-       
     }
 }

@@ -8,7 +8,7 @@ import { FooterData } from "./FooterData";
 
 import "./Footer.scss";
 
-const Footer = () => {
+const Footer = ({actionClickUp}) => {
   return (
     <div className="footer">
       <div className="footer__nav">
