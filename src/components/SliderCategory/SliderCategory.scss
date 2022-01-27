@@ -1,0 +1,19 @@
+.sliderCategory{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    min-width: 170px;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+
+        img{
+            width: 16em;
+            height: 30em;
+            object-fit: contain;
+        }
+    
+}

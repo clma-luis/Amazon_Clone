@@ -18,6 +18,17 @@ html{
 
   body{
     overflow-x: hidden;
+  
+      overflow-x: hidden;
+ }
+
+ body::-webkit-scrollbar{
+width: 15px;
+ }
+
+ body::-webkit-scrollbar-thumb{ 
+   background-color: #aaa;
+
  }
 
  .App{

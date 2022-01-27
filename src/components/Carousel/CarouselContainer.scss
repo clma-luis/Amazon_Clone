@@ -6,19 +6,21 @@
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;
+  margin-bottom: -300px;
 
   .carousel__arrowBack {
     width: 7em;
     height: 25em;
     position: absolute;
     top: 2px;
-    left: 3px;
+    left: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     user-select: none;
     z-index: 1;
+    filter: drop-shadow(-2px 0px 0px #fff);
 
     .icon {
       font-size: 3em;
@@ -36,13 +38,14 @@
     height: 25em;
     position: absolute;
     top: 2px;
-    right: 3px;
+    right: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     user-select: none;
     z-index: 1;
+    filter: drop-shadow(2px 0px 0px #fff);
 
     .icon {
       font-size: 3em;
@@ -57,7 +60,8 @@
 
   .slide {
     opacity: 0;
-    transition-duration: 1s ease;
+    transition-duration: 0.7s ease-out all;
+  
     object-fit: contain;
 
     .carousel-images {
@@ -68,7 +72,8 @@
 
   .slide.active {
     opacity: 1;
-    transition-duration: 0.7s;
+    transition-duration: 0.7s ease-out all;
+ 
 
     .carousel-images {
       width: 100vw;
@@ -88,6 +93,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     overflow: hidden;
+    margin-bottom: -100px;
 
     .carousel__arrowBack {
       height: 20em;
@@ -121,7 +127,7 @@
   .carousel {
     font-size: 10px;
   position: relative;
-  height: 270px;
+  height: 350px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -180,7 +186,8 @@
 
 @media screen and (max-width: 575px) {
   .carousel {
-  height: 350px;
+  height: 450px;
+  margin-bottom: -310px;
 
     .carousel__arrowBack {
       height: 10em;
