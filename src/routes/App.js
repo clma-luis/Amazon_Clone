@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../containers/Layout/Layout";
 import Home from "../pages/Home/Home";
 import CategoryProduct from "../pages/CategoryProduct/CategoryProduct";
+import ProductPage from "../pages/ProductInfo/ProductPage";
 import NotFound from "../pages/NotFound/NotFound";
 import { HomeData } from "../Data/HomeData";
 import {ScrollToTop} from '../hooks/ScrollToTop'
@@ -38,6 +39,7 @@ function App() {
             
             <Route index element={<Home/>} />
             <Route path="categoryproduct/:id" element={<CategoryProduct/>} />
+            <Route path="product" element={<ProductPage/>} />
             <Route path="*" element={<NotFound/>} />
           </Route>
         </Routes>
