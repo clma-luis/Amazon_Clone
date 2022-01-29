@@ -51,10 +51,32 @@
       }
     }
 
-    .checkoutProduct__price {
+    .price_delete{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 2px;
+
+      .delete{
+        color: #00a0d0;
+        font-size: 1.3em;
+        cursor: pointer;
+        user-select: none;
+        
+      }
+      .delete:hover{
+        text-decoration: underline #00a0d0;
+        
+      }
+
+
+      .checkoutProduct__price {
       font-size: 1.8em;
       color: #b12704;
     }
+    }
+
+    
   }
 }
 

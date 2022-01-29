@@ -23,8 +23,13 @@ const CheckoutProduct = () => {
             Gift options not available.{" "}
             <span className="learn-more">Learn more</span>
           </span>
-        
-          <div className="checkoutProduct__price">$12.44</div>
+          <div className="price_delete">
+            
+          <div className="checkoutProduct__price">$12.44&nbsp;&nbsp;</div>
+          <span className="delete">
+           Delete
+            </span>
+          </div>
         </div>
         
       </div>
