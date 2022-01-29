@@ -1,0 +1,133 @@
+.checkout {
+font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  padding: 0 50px;
+  padding-top: 5em;
+  background-color: white;
+  min-height: 90vh;
+
+  h3 {
+    font-size: 2.8em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+  }
+  .checkout__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5em;
+
+    .checkout__product {
+      width: 100%;
+    }
+
+    .checkout__subtotal {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 45%;
+      height: 100px;
+      border: 1px solid #b7bbbb;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 1em;
+
+      .subtotal {
+        font-size: 1.8em;
+
+        .final-price {
+          font-weight: bold;
+        }
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+        background-color: #ffd814;
+        padding: 5px;
+        border: none;
+        border-radius: 0.8rem;
+        transition: 300ms all ease;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      button:hover {
+        background-color: #f7ca00;
+        transition: 300ms all ease;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px){
+  .checkout{
+   padding-left: 5em;
+
+    .checkout__container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+  }
+
+}
+
+
+@media screen and (max-width: 900px){
+  .checkout{
+    padding-left: 5em;
+ 
+     .checkout__container{
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       align-items: center;
+
+       .checkout__subtotal {
+        
+        width: 90%;
+        height: 100px;
+        border: 1px solid #b7bbbb;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 1em;
+  
+        .subtotal {
+          font-size: 1.8em;
+  
+          .final-price {
+            font-weight: bold;
+          }
+        }
+  
+        button {
+          display: flex;
+          justify-content: center;
+          width: 200px;
+          background-color: #ffd814;
+          padding: 5px;
+          border: none;
+          border-radius: 0.8rem;
+          transition: 300ms all ease;
+          cursor: pointer;
+          user-select: none;
+        }
+  
+        button:hover {
+          background-color: #f7ca00;
+          transition: 300ms all ease;
+        }
+      }
+ 
+     }
+ 
+   }
+}

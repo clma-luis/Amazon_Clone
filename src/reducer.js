@@ -2,19 +2,19 @@ import  {HomeData } from './Data/HomeData'
 
 export const initialState = {
     data: HomeData,
+
 }
 
 const reducer = (state, action) => {
 
-
     switch (action.type) {
         
-          
-                case "CHARGE_DATA":
-                    return{
-                        ...state,
-                        data: [...state.data, action]
-                    }
+        case "ADD_PRODUCT":
+            return {
+              ...state,
+              product: [...state.product, action.item],
+            };
+               
             
         
              default:

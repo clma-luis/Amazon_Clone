@@ -5,11 +5,11 @@ import SubHeader from '../../components/SubHeader/SubHeader';
 import Footer from '../../components/Footer/Footer';
 
 
+
 import './Layout.scss'
 
 const Layout = () => {
-const [click, setClick] = useState();
-    
+
 
 
     return (
@@ -19,9 +19,7 @@ const [click, setClick] = useState();
          
             <Outlet />
 
-            <Footer actionClickUp={() => {
-            setClick(!click);
-          }}/>
+            <Footer />
         </div>
     )
 }

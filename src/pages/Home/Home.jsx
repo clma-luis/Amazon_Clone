@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./Home.scss";
 import ProductsGroup from "../../components/ProductsGroup/ProductsGroup";
 import CarouselContainer from "../../components/Carousel/CarouselContainer";
@@ -10,10 +10,19 @@ import InformationPost from "../../components/InformationPost/InformationPost";
 
 const Home = () => {
   const [{ data }, dispatch] = useStateValue();
+  const [scroll, setScroll] = useState();
 
-  console.log("hola yo soy la data del home", data[17].data_products);
+  
   const OptionOne = data.slice(1, 5);
   const OptionTwo = data.slice(5, 8);
+
+  window.onscroll = () => {
+    const y = window.scrollY;
+
+  return console.log(y);
+  }
+
+
 
   return (
     <div className="home">
@@ -52,6 +61,7 @@ const Home = () => {
           {data[11].data_products.map((product) => {
             return (
               <SliderCategory
+              route={data[11].id}
                 id={product.id}
                 title={product.title}
                 image={product.image}
@@ -67,6 +77,7 @@ const Home = () => {
           {data[9].data_products.map((product) => {
             return (
               <SliderCategory
+                route={data[9].id}
                 id={product.id}
                 title={product.title}
                 image={product.image}
@@ -107,7 +118,7 @@ const Home = () => {
             />
           );
         })}
-{/* hrter */}
+
         <ProductPost
           id={data[18].id}
           title={data[18].title}
@@ -123,6 +134,7 @@ const Home = () => {
           {data[10].data_products.map((product) => {
             return (
               <SliderCategory
+              route={data[10].id}
                 id={product.id}
                 title={product.title}
                 image={product.image}
@@ -138,6 +150,7 @@ const Home = () => {
           {data[12].data_products.map((product) => {
             return (
               <SliderCategory
+              route={data[12].id}
                 id={product.id}
                 title={product.title}
                 image={product.image}
@@ -172,6 +185,7 @@ const Home = () => {
           {data[13].data_products.map((product) => {
             return (
               <SliderCategory
+              route={data[13].id}
                 id={product.id}
                 title={product.title}
                 image={product.image}

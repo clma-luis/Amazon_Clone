@@ -1,11 +1,26 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import star from "../../template/images/star.png";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
+import { useStateValue } from "../../StateProvider";
 
 import "./ProductPage.scss";
 
 const ProductPage = () => {
+  const [{data}, dispatch] = useStateValue();
+
+    const {product} = useParams(); 
+    const {category} = useParams();
+
+    console.log(`Hola yo soy el product: ${product} y yo soy el ${category}`);
+
+    const indexcategory = data.findIndex((item) => item.id === category);
+    
+    const indexproduct = data[indexcategory].data_products.find((item) => item.id ===product)
+    console.log('hola hola hola', indexproduct);
+
+
   return (
     <div className="productPage">
       <div className="productPage__img">
@@ -19,20 +34,19 @@ const ProductPage = () => {
       <div className="productPage__container">
         <div className="productPage__image">
           <img
-            src="https://m.media-amazon.com/images/I/81tjLksKixL._AC_SL1500_.jpg"
-            alt=""
+            src={indexproduct.image}
+            alt={indexproduct.title}
           />
         </div>
 
         <div className="productPage__info">
           <h1>
-            Seagate Portable 2TB External Hard Drive Portable HDD – USB 3.0 for
-            PC, Mac, PlayStation, & Xbox - 1-Year Rescue Service (STGX2000400)
+          {indexproduct.title}
           </h1>
-          <span className="productPage__by">By Seteage Store</span>
+          <span className="productPage__by">By {indexproduct.brand}</span>
           <div className="product__rating">
             <span className="star">
-              {Array(5)
+              {Array(indexproduct.rating)
                 .fill()
                 .map((_, i) => (
                   <img
@@ -46,7 +60,7 @@ const ProductPage = () => {
             <span className="arrow-vote">
               <KeyboardArrowDownIcon className="arrow-icon" />
               <span className="vote">
-                175,305 ratings | 1000 answered questions
+              {indexproduct.votes} ratings | {indexproduct.answer_questions} answered questions
               </span>
             </span>
             <div className="space"></div>
@@ -59,10 +73,10 @@ const ProductPage = () => {
             
             <span className="price">
               <span className="price__info">
-                Price: &nbsp; <h4>$59</h4>
+                Price: &nbsp; <h4>${indexproduct.price}</h4>
               </span>
 
-              <p>$26.6 Shipping & import Fees Deposit to USA</p>
+              <p>${indexproduct.price_shipping} Shipping & import Fees Deposit to USA</p>
               <span className="details">
                 Details
                 <KeyboardArrowDownIcon className="arrow-icon" />
@@ -74,12 +88,12 @@ const ProductPage = () => {
         <div className="productPage__addtocard">
           <div className="ProductPage__addtocard-container">
             <div className="productPage__price-addtocard">
-              <h4>$59.99</h4>
+              <h4>${indexproduct.price}</h4>
               <p className="shipping">
-                $26.6 Shipping & import Fees Deposit to USA
+              ${indexproduct.price_shipping} Shipping & import Fees Deposit to USA
               </p>
               <p className="datemtime">
-                Delivery <span className="delivery">Thursday, February 10</span>
+                Delivery <span className="delivery">{indexproduct.get_it}</span>
               </p>
             </div>
             <div className="productPage__delivery">

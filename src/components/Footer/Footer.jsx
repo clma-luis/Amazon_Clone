@@ -5,16 +5,27 @@ import ArrowDropDownSharpIcon from "@material-ui/icons/ArrowDropDownSharp";
 import ArrowDropUpSharpIcon from "@material-ui/icons/ArrowDropUpSharp";
 import usaflag from "../../template/images/usa-flag.png";
 import { FooterData } from "./FooterData";
+import { animateScroll as scroll } from 'react-scroll'
+
+
 
 import "./Footer.scss";
 
-const Footer = ({actionClickUp}) => {
+const Footer = ({id}) => {
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  }
+
   return (
     <div className="footer">
       <div className="footer__nav">
-        <div className="footer__backtop">
+     
+         <div className="footer__backtop" onClick={scrollToTop}>
           <span>Back to top</span>
-        </div>
+        </div> 
+  
+        
 
         <div className="footer__columsInfo">
           <div className="footer__getToKnowUs">

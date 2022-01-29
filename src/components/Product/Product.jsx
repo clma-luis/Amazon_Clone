@@ -4,16 +4,22 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import star from "../../template/images/star.png";
 import "./Product.scss";
 
+
 const Product = ({
+  route,
   id,
   title,
   price,
+  brand,
   image,
   rating,
   votes,
+  answer_questions,
   get_it,
   shipping
 }) => {
+
+
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -22,9 +28,9 @@ const Product = ({
   return (
     <div className="product">
       
-        <div className="product__post">
-          <Link className="isActive" to="/">
-          <img
+        <div className="product__post" >
+          <Link className="isActive" to={`/product/${route}/${id}`}>
+          <img 
             className="product__img"
             src={image}
             alt=""
