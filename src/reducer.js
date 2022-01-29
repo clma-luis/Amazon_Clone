@@ -2,17 +2,18 @@ import  {HomeData } from './Data/HomeData'
 
 export const initialState = {
     data: HomeData,
+    basket: [],
 
 }
 
 const reducer = (state, action) => {
-
+    console.log('soy el addtobasket', action);
     switch (action.type) {
         
-        case "ADD_PRODUCT":
+        case "ADD_TO_BASKET":
             return {
               ...state,
-              product: [...state.product, action.item],
+              basket: [...state.basket, action.item],
             };
                
             

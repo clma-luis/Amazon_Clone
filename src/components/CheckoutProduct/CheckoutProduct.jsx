@@ -2,21 +2,19 @@ import React from "react";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "./CheckoutProduct.scss";
 
-const CheckoutProduct = () => {
+const CheckoutProduct = ({id, title, image, price}) => {
   return (
     <div className="checkoutProduct">
       <div className="checkoutProduct__container">
         <div className="checkoutProduct__image">
           <img
-            src="https://m.media-amazon.com/images/I/91jb08nas1L._AC_AA180_.jpg"
-            alt=""
+            src={image}
+            alt={title}
           />
         </div>
         <div className="checkoutProduct__info">
           <span className="productProduct__title">
-            Amazon Basics Kids Bedding Nap Set with Dinosaur Pillow and Fleece
-            Throw BlanketAmazon Basics Kids Bedding Nap Set with Dinosaur Pillow
-            and Fleece Throw Blanket
+            {title}
           </span>
           <span className="in-stock">In Stock</span>
           <span className="gift-option">
@@ -25,7 +23,7 @@ const CheckoutProduct = () => {
           </span>
           <div className="price_delete">
             
-          <div className="checkoutProduct__price">$12.44&nbsp;&nbsp;</div>
+          <div className="checkoutProduct__price">${price}&nbsp;&nbsp;</div>
           <span className="delete">
            Delete
             </span>

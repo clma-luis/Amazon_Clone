@@ -6,11 +6,12 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import { NavLink } from "react-router-dom";
 import usaflag from "../../template/images/usa-flag.png";
-
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SubMenuL from "../SubMenuL/SubMenuL";
 import SubMenuR from "../SubMenuR/SubMenuR";
 import MiniSignIn from "../MiniSignIn/MiniSignIn";
+
+import { useStateValue } from "../../StateProvider";
 
 import "./Header.scss";
 
@@ -19,14 +20,17 @@ const Header = () => {
   const [hover, setHover] = useState(false);
   const [signHover, setSignHover] = useState(false);
   const [effect, setEffect] = useState(false);
+  const [{ basket }, dispatch] = useStateValue();
 
   useEffect(() => {
     setEffect(!effect);
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setEffect(effect);
-    }, 2000)
+    }, 2000);
   }, []);
+
+  console.log("yo soy el basket del header", basket);
 
   return (
     <div className="Header">
@@ -128,10 +132,12 @@ const Header = () => {
           </div>
 
           <div className="header__option">
-            <div className="header__optionBasket">
-              <ShoppingBasketIcon className="header__basketIcon" />
-              <span className="header__basketCount">0</span>
-            </div>
+            <NavLink to="/checkout" className="isActive">
+              <div className="header__optionBasket">
+                <ShoppingBasketIcon className="header__basketIcon" />
+                <span className="header__basketCount">{basket?.length}</span>
+              </div>
+            </NavLink>
           </div>
         </div>
 

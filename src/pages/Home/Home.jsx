@@ -10,17 +10,10 @@ import InformationPost from "../../components/InformationPost/InformationPost";
 
 const Home = () => {
   const [{ data }, dispatch] = useStateValue();
-  const [scroll, setScroll] = useState();
 
-  
   const OptionOne = data.slice(1, 5);
   const OptionTwo = data.slice(5, 8);
 
-  window.onscroll = () => {
-    const y = window.scrollY;
-
-  return console.log(y);
-  }
 
 
 

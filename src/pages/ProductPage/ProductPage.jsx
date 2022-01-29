@@ -8,17 +8,27 @@ import { useStateValue } from "../../StateProvider";
 import "./ProductPage.scss";
 
 const ProductPage = () => {
-  const [{data}, dispatch] = useStateValue();
+  const [{data, basket}, dispatch] = useStateValue();
 
     const {product} = useParams(); 
     const {category} = useParams();
-
-    console.log(`Hola yo soy el product: ${product} y yo soy el ${category}`);
-
     const indexcategory = data.findIndex((item) => item.id === category);
-    
     const indexproduct = data[indexcategory].data_products.find((item) => item.id ===product)
     console.log('hola hola hola', indexproduct);
+
+    const addToBasket = () => {
+      //dispatch the item into the data layer
+      dispatch({
+        type: 'ADD_TO_BASKET',
+        item: {
+          id: indexproduct.id,
+          title: indexproduct.title,
+          image: indexproduct.image,
+          price: indexproduct.price,
+          rating: indexproduct.rating
+        }
+      })
+    }
 
 
   return (
@@ -100,8 +110,8 @@ const ProductPage = () => {
               <LocationOnOutlinedIcon className="icon-location" />
               <span>Delivery to USA</span>
             </div>
-            <div className="button_card">
-              <button className="add_to_cart">Add to Cart</button>
+            <div className="button_card" >
+              <button className="add_to_cart" onClick={addToBasket}>Add to Cart</button>
             </div>
           </div>
         </div>
