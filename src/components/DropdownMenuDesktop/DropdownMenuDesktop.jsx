@@ -1,24 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PermIdentityRoundedIcon from "@material-ui/icons/PermIdentityRounded";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import CloseIcon from "@material-ui/icons/Close";
 import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 import "./DropdownMenuDesktop.scss";
 
-const DropdownMenuDesktop = ({ actionToPerform }) => {
+const DropdownMenuDesktop = ({ actionToPerform, scroll }) => {
   return (
     <div className="dropdown__menudesktop">
       <div className="dropdown__menu-left">
         <div className="dropdown__menu-box1">
           <div className="dropdown__menu-item profile">
-            <span>Sign In</span>
-            <PermIdentityRoundedIcon className="icon__profile" />
-          </div>
-          <div className="dropdown__menu-item title">
-            <h1>
-              <span>Browse</span> <br />
-              Amazon
-            </h1>
+            <Link to="/signin" className="isActive">
+              <span>Hello, Sign In</span>
+
+              <PermIdentityRoundedIcon className="icon__profile" />
+            </Link>
           </div>
         </div>
         <div className="scroll">
@@ -47,11 +45,12 @@ const DropdownMenuDesktop = ({ actionToPerform }) => {
           </div>
         </div>
       </div>
-
-      <div className="dropdown__menu-right">
-        <span className="button-icon" onClick={actionToPerform}>
-          <CloseIcon className="closeicon" />
-        </span>
+      <div onClick={scroll}>
+        <div className="dropdown__menu-right">
+          <span className="button-icon" onClick={actionToPerform}>
+            <CloseIcon className="closeicon" />
+          </span>
+        </div>
       </div>
     </div>
   );

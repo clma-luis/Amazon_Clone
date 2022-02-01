@@ -11,3 +11,8 @@
         text-decoration: none;
     }
 }
+
+.layout.stop-scrolling{
+    height: 100vh;
+  overflow: hidden;
+}

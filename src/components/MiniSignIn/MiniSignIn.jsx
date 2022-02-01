@@ -8,7 +8,10 @@ const MiniSignIn = () => {
     <div className="minisignin">
       <div className="subMenu__list">
         <div className="subMenuR__button">
-          <button>Sign In</button>
+          <Link to="/signin">
+            <button>Sign In</button>
+          </Link>
+          
           <p>
             New customer?{" "}
             <Link className="start-here" to="/">

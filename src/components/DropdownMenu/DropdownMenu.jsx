@@ -5,7 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 import "./DropdownMenu.scss";
 
-const Dropdown_Menu = ({ actionToPerform }) => {
+const Dropdown_Menu = ({ actionToPerform, scroll }) => {
   return (
     <div className="dropdown__menu">
       <div className="dropdown__menu-left">
@@ -51,7 +51,7 @@ const Dropdown_Menu = ({ actionToPerform }) => {
 
       </div>
 
-      <div className="dropdown__menu-right">
+      <div className="dropdown__menu-right" onClick={scroll}>
         <span className="button-icon" onClick={actionToPerform}>
           <CloseIcon className="closeicon" />
         </span>

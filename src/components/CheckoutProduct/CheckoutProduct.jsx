@@ -1,8 +1,17 @@
 import React from "react";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "./CheckoutProduct.scss";
+import { useStateValue } from "../../StateProvider";
 
 const CheckoutProduct = ({id, title, image, price}) => {
+const [{basket}, dispatch] = useStateValue();
+
+const removeToBasket = () => {
+  dispatch({
+    type: "REMOVE_FROM_BASKET",
+    id
+  })
+}
+
   return (
     <div className="checkoutProduct">
       <div className="checkoutProduct__container">
@@ -24,7 +33,7 @@ const CheckoutProduct = ({id, title, image, price}) => {
           <div className="price_delete">
             
           <div className="checkoutProduct__price">${price}&nbsp;&nbsp;</div>
-          <span className="delete">
+          <span className="delete" onClick={removeToBasket}>
            Delete
             </span>
           </div>

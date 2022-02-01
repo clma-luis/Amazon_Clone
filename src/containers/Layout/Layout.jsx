@@ -9,13 +9,20 @@ import Footer from '../../components/Footer/Footer';
 import './Layout.scss'
 
 const Layout = () => {
-
+    const [onScroll, setOnScroll] = useState(false);
 
 
     return (
-        <div className="layout">
-            <Header id="header"/>
-            <SubHeader/>
+        <div className= {onScroll ? "layout stop-scrolling" : "layout"}>
+            <Header id="header" 
+            inactiveScroll={() => {
+                setOnScroll(!onScroll)
+            }}
+          />
+            <SubHeader inactiveScroll={() => {
+                setOnScroll(!onScroll)
+            }}
+            />
          
             <Outlet />
 

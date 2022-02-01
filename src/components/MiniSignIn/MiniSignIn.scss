@@ -33,11 +33,12 @@
           background-image: linear-gradient(
             180deg,
             #fafaca 0,
-            #fde488 25%,
+            hsl(47, 97%, 76%) 25%,
             #eccd8f 50%,
             #daba8a 75%,
             #cea87a 100%
           );
+          cursor: pointer;
         }
         p {
           display: flex;

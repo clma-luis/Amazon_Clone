@@ -7,7 +7,9 @@ const SubMenuR = () => {
     <div className="subMenuR ">
       <div className="subMenuR__list">
         <div className="subMenuR__button">
+          <Link to="/signin">
           <button>Sign In</button>
+          </Link>
           <p>
             New customer?{" "}
             <Link className="start-here" to="/">

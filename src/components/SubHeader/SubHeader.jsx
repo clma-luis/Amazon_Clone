@@ -4,7 +4,7 @@ import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import DropdownMenuDesktop from "../DropdownMenuDesktop/DropdownMenuDesktop";
 import "./SubHeader.scss";
 
-const SubHeader = () => {
+const SubHeader = ({ inactiveScroll }) => {
   const [menuclick, setMenuclick] = useState(false);
 
   const handlebuttom = () => {
@@ -21,8 +21,10 @@ const SubHeader = () => {
                 className="SubHeader__menu MenuOutlinedIcon"
                 onClick={handlebuttom}
               >
-                <MenuOutlinedIcon className="icon" />
-                <span>All</span>
+                <div onClick={inactiveScroll}>
+                  <MenuOutlinedIcon className="icon" />
+                  <span>All</span>
+                </div>
               </div>
             </Link>
           </div>
@@ -88,15 +90,20 @@ const SubHeader = () => {
           actionToPerform={() => {
             setMenuclick(!menuclick);
           }}
+          scroll= {inactiveScroll}
         />
       </div>
 
-      <div
-        className={menuclick ? "background-hidden active" : "background-hidden"}
-        onClick={() => {
-          setMenuclick(false);
-        }}
-      ></div>
+      <div onClick={inactiveScroll}>
+        <div
+          className={
+            menuclick ? "background-hidden active" : "background-hidden"
+          }
+          onClick={() => {
+            setMenuclick(false);
+          }}
+        ></div>
+      </div>
     </div>
   );
 };

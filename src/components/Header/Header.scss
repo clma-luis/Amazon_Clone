@@ -122,6 +122,13 @@
     color: white;
     border: 0.5px solid #131921;
 
+    .isActive{
+      text-decoration: none;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
     .submenu__SignIn {
       position: absolute;
       top: 53px;

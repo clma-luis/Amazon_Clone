@@ -14,7 +14,6 @@ const ProductPage = () => {
     const {category} = useParams();
     const indexcategory = data.findIndex((item) => item.id === category);
     const indexproduct = data[indexcategory].data_products.find((item) => item.id ===product)
-    console.log('hola hola hola', indexproduct);
 
     const addToBasket = () => {
       //dispatch the item into the data layer

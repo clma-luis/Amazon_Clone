@@ -1,0 +1,330 @@
+.signIn {
+  font-size: 10px;
+  width: 100%;
+  padding: 2em;
+  background-color: rgb(246, 250, 250);
+
+  .signIn__logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 3em;
+
+    img {
+      width: 110px;
+    }
+  }
+
+  .sigIn__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+    width: 350px;
+    height: 480px;
+    margin: 0 auto;
+    border: 1px solid #c5c3c3;
+    border-radius: 5px;
+
+    .signIn__title {
+      font-size: 2.8em;
+    }
+
+    .signIn__box {
+      display: flex;
+      flex-direction: column;
+
+      .signIn__form {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5em;
+        margin-top: 1em;
+
+        .signIn__name{
+          font-size: 1.3em;
+          margin-bottom: 0.3em;
+          display: none;
+        }
+
+        .signIn__name.active{
+          font-size: 1.3em;
+          margin-bottom: 0.3em;
+          display: block;
+        }
+
+        .signIn__input-name{
+          height: 3rem;
+          margin-bottom: 1em;
+          border: 1px solid #a6a6a6;
+          border-radius: 0.5rem;
+          display: none;
+        }
+
+        .signIn__input-name.active{
+          height: 3rem;
+          margin-bottom: 1em;
+          border: 1px solid #a6a6a6;
+          border-radius: 0.5rem;
+          display: block;
+        }
+
+        .signIn__email {
+          font-size: 1.3em;
+          margin-bottom: 0.3em;
+        }
+        .signIn__input-email {
+          height: 3rem;
+          margin-bottom: 1em;
+          border: 1px solid #a6a6a6;
+          border-radius: 0.5rem;
+        }
+
+        .signIn__password {
+          font-size: 1.3em;
+          margin-bottom: 0.3em;
+        }
+        
+        .signIn__input-password {
+          height: 3rem;
+          margin-bottom: 1em;
+          border: 1px solid #a6a6a6;
+          border-radius: 0.5rem;
+        }
+
+        .signIn__continue-button {
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          background-color: #f4d27f;
+          padding: 5px;
+          border: 1px solid #9c7e31;
+          border-radius: 0.5rem;
+          transition: 300ms all ease;
+          cursor: pointer;
+          user-select: none;
+          margin-bottom: 1.5em;
+        }
+
+        .signIn__continue-button:hover {
+          background-color: #f0c047;
+          transition: 300ms all ease;
+        }
+
+        .signIn__continue-button.active{
+          display: none;
+        }
+
+
+        .create__continue-button{
+          display: none;
+        }
+
+        .create__continue-button.active{
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          background-color: #f4d27f;
+          padding: 5px;
+          border: 1px solid #9c7e31;
+          border-radius: 0.5rem;
+          transition: 300ms all ease;
+          cursor: pointer;
+          user-select: none;
+          margin-bottom: 1.5em;
+        }
+
+        
+        .create__continue-button:hover{
+          background-color: #f0c047;
+          transition: 300ms all ease;
+        }
+
+      }
+      .signIn__info {
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
+
+        .info-conditions,
+        .info-privacy {
+          color: #038ab3;
+          cursor: pointer;
+          user-select: none;
+        }
+        .info-conditions:hover,
+        .info-privacy:hover {
+          color: #c45500;
+          text-decoration: underline #c45500;
+        }
+      }
+
+      .signIn__needhelp {
+        font-size: 1.3em;
+        color: #038ab3;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        .signIn__needhelp-icon {
+          color: #656565;
+          font-size: 1.5em;
+        }
+
+        .signIn__needHelp-box {
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+
+          .need-help {
+            color: #038ab3;
+            user-select: none;
+          }
+
+          .need-help:hover {
+            color: #c45500;
+            text-decoration: underline #c45500;
+          }
+
+          .signIn__needhelp-minimenu {
+            display: none;
+          }
+
+          .signIn__needhelp-minimenu.active {
+            display: block;
+
+            .forgot-password {
+              color: #038ab3;
+              user-select: none;
+            }
+
+            .forgot-password:hover {
+              color: #c45500;
+              text-decoration: underline #c45500;
+            }
+
+            .other-issues {
+              color: #038ab3;
+              user-select: none;
+            }
+
+            .other-issues:hover {
+              color: #c45500;
+              text-decoration: underline #c45500;
+            }
+          }
+        }
+      }
+    }
+
+    .newToAmazon{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3em;
+
+      .newToAmazonTitle{
+        font-size: 1.2em;
+        margin-bottom: 0.5rem;
+        color: #767895;
+      }
+
+      .newAmazonButton{
+        width: 100%;
+        height: 3rem;
+        border: 1px solid #a3a2a2;;
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    .newToAmazon.active{
+      display: none;
+    }
+
+    .linkToSignIn{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      display: none;
+      margin-top: 3rem;
+
+      .ready{
+        font-size: 1.2rem;
+
+        .signIn{
+          font-size: 1.2rem;
+          color: #038ab3;
+          cursor: pointer;
+          user-select: none;
+        }
+        .signIn:hover{
+          color: #c45500;
+          text-decoration: underline #c45500;
+        }
+      }
+
+      .freeBusiness{
+        font-size: 1.2rem;
+
+        .createAccount{
+          color: #038ab3;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .createAccount:hover{
+          color: #c45500;
+          text-decoration: underline #c45500;
+        }
+      }
+
+    }
+
+    .linkToSignIn.active{
+      display: block;
+    }
+  }
+
+  .SignIn__footer{
+    font-size: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+    border-top: 1px solid #d8d6d6;
+    padding-top: 3em;
+
+
+    .info__footer{
+      width: 250px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 0.5em;
+
+      .conditon-footer, .privacy-footer, .help-footer{
+        font-size: 1.2em;
+        color: #038ab3;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .conditon-footer:hover, .privacy-footer:hover, .help-footer:hover{
+        color: #c45500;
+        text-decoration: underline #c45500;
+      }
+    }
+
+    .byAmazon-footer{
+      font-size: 1.1em;
+      color: #6B6A86;
+    }
+  }
+}

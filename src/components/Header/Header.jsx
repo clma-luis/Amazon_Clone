@@ -15,7 +15,7 @@ import { useStateValue } from "../../StateProvider";
 
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({inactiveScroll}) => {
   const [click, setClick] = useState(false);
   const [hover, setHover] = useState(false);
   const [signHover, setSignHover] = useState(false);
@@ -34,7 +34,11 @@ const Header = () => {
 
   return (
     <div className="Header">
+      
+
+      
       <div className="header">
+        <div onClick={inactiveScroll}>
         <div
           className="header__menuIcon"
           onClick={() => {
@@ -48,6 +52,7 @@ const Header = () => {
               <MenuOutlinedIcon className="icon" />
             )}
           </i>
+        </div>
         </div>
 
         <NavLink to="/">
@@ -113,9 +118,13 @@ const Header = () => {
               setSignHover(false);
             }}
           >
-            <span className="header__optionLineOne">Hello Guest,</span>
+            <NavLink to="/signin" className="isActive">
+
+               <span className="header__optionLineOne">Hello Guest,</span>
 
             <span className="header__optionLineTwo">Sign In</span>
+       
+            </NavLink>
 
             <span
               className={
@@ -158,6 +167,7 @@ const Header = () => {
           actionToPerform={() => {
             setClick(!click);
           }}
+          scroll= {inactiveScroll}
         />
       </div>
     </div>

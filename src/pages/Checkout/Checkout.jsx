@@ -1,13 +1,12 @@
 import React from "react";
 import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
 import { useStateValue } from "../../StateProvider";
+import Subtotal from "../../components/Subtotal/Subtotal";
 import "./Checkout.scss";
 
 const Checkout = () => {
 
   const [{ basket }, dispatch] = useStateValue();
-
-  console.log('hola soy el basket de checkout', basket);
 
   return (
     <div className="checkout">
@@ -29,10 +28,9 @@ const Checkout = () => {
         </div>
         
         <div className="checkout__subtotal">
-          <div className="subtotal">
-            Subtotal ({basket?.length} items): <span className="final-price">$51.50</span>
-          </div>
-          <button>Proceed to checkout</button>
+
+          <Subtotal/>
+          
         </div>
       </div>
     </div>

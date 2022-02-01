@@ -8,7 +8,7 @@ const InformationPost = () => {
       
         <div className="box">
           <h1>Sign in for the best experience</h1>
-          <Link className="isActive" to="/">
+          <Link className="isActive" to="/signin">
               <button>Sign in securely</button>
           </Link>
           

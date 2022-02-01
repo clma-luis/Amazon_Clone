@@ -7,6 +7,7 @@
   height: 90vh;
   display: flex;
   justify-content: flex-end;
+  z-index: 100;
 
   .subMenuR__list {
     display: flex;
@@ -16,7 +17,7 @@
     color: #151515;
     position: absolute;
     top: -6px;
-    right: 120px;
+    right: 110px;
     width: 50em;
     height: 42em;
     background-color: white;
@@ -43,6 +44,7 @@
           #daba8a 75%,
           #cea87a 100%
         );
+        cursor: pointer;
       }
       p {
         display: flex;
@@ -113,5 +115,5 @@
   border-bottom: 12px solid white;
   position: absolute;
   top: -10px;
-  right: 38px;
+  right: 48px;
 }

@@ -12,14 +12,15 @@
 
     .checkoutProduct__image {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0 auto;
       min-width: 20%;
       max-width: 30%;
+      min-height: 20%;
+      max-height: 30%;
       overflow: hidden;
 
       img {
-        width: 30%;
+        width: 90%;
         height: 70%;
         object-fit: contain;
       }
@@ -28,7 +29,7 @@
     .checkoutProduct__info {
       display: flex;
       flex-direction: column;
-      background-color: rgb(245, 235, 235);
+      background-color: rgb(250, 249, 249);
 
       .productProduct__title {
         font-size: 1.8em;
@@ -118,7 +119,7 @@
 
 @media screen and (max-width: 480px){
   .checkoutProduct {
-    font-size: 7px;
+    font-size: 9px;
     margin: 0 auto;
     .checkoutProduct__container {
       display: flex;
@@ -126,10 +127,20 @@
 
       .checkoutProduct__image {
         display: flex;
- 
+        justify-content: center;
         align-items: center;
         min-width: 40%;
+        max-width: 60%;
+        padding-bottom: 2em;
         overflow: hidden;
+
+        
+      img {
+        display: flex;
+        width: 90%;
+        height: 70%;
+        object-fit: contain;
+      }
   
       }
 
