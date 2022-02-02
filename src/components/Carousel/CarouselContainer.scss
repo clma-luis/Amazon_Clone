@@ -190,7 +190,7 @@
   margin-bottom: -310px;
 
     .carousel__arrowBack {
-      height: 10em;
+      height: 14.5em;
 
       .icon {
         font-size: 2em;
@@ -198,7 +198,7 @@
     }
 
     .carousel__arrowForward {
-      height: 10em;
+      height: 14.5em;
 
       .icon {
         font-size: 2em;
@@ -213,6 +213,7 @@
       .carousel-images {
         width: 100vw;
         height: 100%;
+     
       }
     }
 
@@ -221,9 +222,10 @@
       transition-duration: 0.7s;
 
       .carousel-images {
-        width: 100vw;
-        height: 100%;
-        object-fit: cover;
+        width: 110vw;
+        height: 120%;
+        
+        object-fit: contain;
       }
     }
   }

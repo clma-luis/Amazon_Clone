@@ -38,7 +38,8 @@
     .productPage__info {
       display: flex;
       flex-direction: column;
-
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
       h1 {
         font-size: 2.4em;
       }
@@ -245,7 +246,6 @@
 @media screen and (max-width: 676px) {
   .productPage {
     font-size: 9.5px;
-    
   }
 }
 

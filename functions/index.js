@@ -22,14 +22,14 @@ app.post("/payments/create", async (request, response) => {
       amount: total, // subunits of the currency
       currency: "usd",
     });
-  
+   
     // OK - Created
     response.status(201).send({
       clientSecret: paymentIntent.client_secret,
     });
   })
 
+  app.listen(3000, )
+
 exports.api = functions.https.onRequest(app);
 
-// example endpoint
-// http://localhost:5001/clone-e481e/us-central1/api
