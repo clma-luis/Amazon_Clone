@@ -1,27 +1,69 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignIn.scss";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import { app } from "../../firebase";
+import { getDatabase, ref, set } from "firebase/database";
 
 const SignIn = () => {
+  //change the state of signIn to Register
   const [needHelp, setNeedHelp] = useState(false);
   const [register, setRegister] = useState(false);
+
+  //firebase connection
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [userId, setUserId] = useState("");
+
 
   const DownMenu = () => {
     setNeedHelp(!needHelp);
   };
+
   const RegisterForm = () => {
     setRegister(!register);
   };
 
   const signInButton = (e) => {
     e.preventDefault();
-  }
+
+    app
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        
+        navigate("/");
+     
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
+      });
+  };
 
   const registerButton = (e) => {
     e.preventDefault();
-  }
+
+    app
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          setUserId(auth.user.uid);
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
+      });
+  };
+
 
   return (
     <div className="signIn">
@@ -40,26 +82,55 @@ const SignIn = () => {
         </span>
         <div className="signIn__box">
           <form className="signIn__form">
-            <span className={register ? "signIn__name active" : "signIn__name"}>
+          <span className={register ? "signIn__name active" : "signIn__name"}>
               Name
             </span>
             <input
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className={
                 register ? "signIn__input-name active" : "signIn__input-name"
               }
             />
+            
             <span className="signIn__email">Email</span>
-            <input type="text" className="signIn__input-email" />
+            <input 
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="signIn__input-email" />
             <span className="signIn__password">Password</span>
             <input
               type="password"
+              value={password}
+              onChange={(e)=> setPassword(e.target.value)}
               className="signIn__input-password"
               placeholder={register ? "At least 6 characters" : ""}
             />
 
-            <button  type="submit" className= {register ? "signIn__continue-button active" : "signIn__continue-button" } onClick={signInButton}>Continue</button>
-            <button type="submit" className={register ? "create__continue-button active" : "create__continue-button"} onClick={registerButton}>Continue</button>
+            <button
+              type="submit"
+              className={
+                register
+                  ? "signIn__continue-button active"
+                  : "signIn__continue-button"
+              }
+              onClick={signInButton}
+            >
+              Continue
+            </button>
+            <button
+              type="submit"
+              className={
+                register
+                  ? "create__continue-button active"
+                  : "create__continue-button"
+              }
+              onClick={registerButton}
+            >
+              Continue
+            </button>
           </form>
 
           <span className="signIn__info">
@@ -96,7 +167,10 @@ const SignIn = () => {
           </div>
           <div className={register ? "linkToSignIn active" : "linkToSignIn"}>
             <span className="ready">
-              Already have an account?<span className="signIn" onClick={RegisterForm}>Sign-In</span>
+              Already have an account?
+              <span className="signIn" onClick={RegisterForm}>
+                Sign-In
+              </span>
             </span>
             <br />
             <span className="freeBusiness">

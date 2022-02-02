@@ -2,7 +2,8 @@ import { HomeData } from "./Data/HomeData";
 
 export const initialState = {
   data: HomeData,
-  basket: []
+  basket: [],
+  user: null
 
 };
 
@@ -19,6 +20,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         basket: [...state.basket, action.item],
+      };
+
+      case "EMPTY_BASKET":
+      return{
+        ...state,
+        basket: []
       };
 
     case "REMOVE_FROM_BASKET":
@@ -39,6 +46,12 @@ const reducer = (state, action) => {
       return {
           ...state,
           basket: newBasket
+      };
+
+      case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
       };
 
     default:

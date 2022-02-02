@@ -9,6 +9,8 @@ const Subtotal = () => {
   const navigate = useNavigate();
   const [{ basket }, dispatch] = useStateValue();
 
+
+
   return (
     <div className="subtotal">
       <CurrencyFormat

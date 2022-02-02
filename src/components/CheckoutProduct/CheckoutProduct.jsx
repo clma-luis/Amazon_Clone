@@ -2,7 +2,7 @@ import React from "react";
 import "./CheckoutProduct.scss";
 import { useStateValue } from "../../StateProvider";
 
-const CheckoutProduct = ({id, title, image, price}) => {
+const CheckoutProduct = ({id, title, image, price, hidden}) => {
 const [{basket}, dispatch] = useStateValue();
 
 const removeToBasket = () => {
@@ -25,16 +25,16 @@ const removeToBasket = () => {
           <span className="productProduct__title">
             {title}
           </span>
-          <span className="in-stock">In Stock</span>
+          <span className="in-stock"> {hidden ? "" : "In Stock"}</span>
           <span className="gift-option">
-            Gift options not available.{" "}
-            <span className="learn-more">Learn more</span>
+          {hidden ? "" : "Gift options not available."}{" "}
+            <span className="learn-more">{hidden ? "" : "Learn more"} </span>
           </span>
           <div className="price_delete">
             
           <div className="checkoutProduct__price">${price}&nbsp;&nbsp;</div>
           <span className="delete" onClick={removeToBasket}>
-           Delete
+          {hidden ? "" : "Delete"} 
             </span>
           </div>
         </div>

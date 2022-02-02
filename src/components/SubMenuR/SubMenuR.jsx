@@ -1,14 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./SubMenuR.scss";
+import { useStateValue } from "../../StateProvider";
+import { app } from "../../firebase";
+
 
 const SubMenuR = () => {
+  const [{ basket, user }, dispatch] = useStateValue();
+
+
+  const handleAuthentication = () => {
+    if (user) {
+      app.auth().signOut();
+    }
+  };
+
   return (
     <div className="subMenuR ">
       <div className="subMenuR__list">
         <div className="subMenuR__button">
-          <Link to="/signin">
-          <button>Sign In</button>
+          <Link to={user ? "" : "/signin"}>
+          <button onClick={handleAuthentication}>{user ? "Sign Out" : "Sign In"}</button>
           </Link>
           <p>
             New customer?{" "}

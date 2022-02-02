@@ -93,6 +93,8 @@
     transition: visibility 1s;
     transition-timing-function: ease-in-out;
     width: 100%;
+
+    
   }
 
   .header__minisign_menu.active {
@@ -104,6 +106,8 @@
     transition-delay: 0.5s;
     z-index: 100;
   }
+
+  
 }
 
 .header__nav {
@@ -136,12 +140,19 @@
       visibility: hidden;
       transition: all 100ms ease;
       opacity: 1;
+
+
     }
 
     .submenu__SignIn.active {
       visibility: visible;
       transition: all 100ms ease;
       opacity: 1;
+    }
+
+    .authentication{
+      display: flex;
+      flex-direction: column;
     }
 
     .header__optionLineOne {
@@ -301,6 +312,10 @@
       grid-area: navbar;
       min-width: 20em;
     }
+  }
+
+  .header__flag{
+    display: none !important;
   }
 }
 

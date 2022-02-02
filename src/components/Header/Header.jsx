@@ -9,50 +9,44 @@ import usaflag from "../../template/images/usa-flag.png";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SubMenuL from "../SubMenuL/SubMenuL";
 import SubMenuR from "../SubMenuR/SubMenuR";
-import MiniSignIn from "../MiniSignIn/MiniSignIn";
+import { app } from "../../firebase";
 
 import { useStateValue } from "../../StateProvider";
 
 import "./Header.scss";
 
-const Header = ({inactiveScroll}) => {
+const Header = ({ inactiveScroll }) => {
   const [click, setClick] = useState(false);
   const [hover, setHover] = useState(false);
   const [signHover, setSignHover] = useState(false);
-  const [effect, setEffect] = useState(false);
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
-  useEffect(() => {
-    setEffect(!effect);
+  const handleAuthentication = () => {
+    if (user) {
+      app.auth().signOut();
+    }
+  };
 
-    setTimeout(() => {
-      setEffect(effect);
-    }, 2000);
-  }, []);
 
-  console.log("yo soy el basket del header", basket);
 
   return (
     <div className="Header">
-      
-
-      
       <div className="header">
         <div onClick={inactiveScroll}>
-        <div
-          className="header__menuIcon"
-          onClick={() => {
-            setClick(!click);
-          }}
-        >
-          <i>
-            {click ? (
-              <MenuOutlinedIcon className="icon" />
-            ) : (
-              <MenuOutlinedIcon className="icon" />
-            )}
-          </i>
-        </div>
+          <div
+            className="header__menuIcon"
+            onClick={() => {
+              setClick(!click);
+            }}
+          >
+            <i>
+              {click ? (
+                <MenuOutlinedIcon className="icon" />
+              ) : (
+                <MenuOutlinedIcon className="icon" />
+              )}
+            </i>
+          </div>
         </div>
 
         <NavLink to="/">
@@ -93,10 +87,10 @@ const Header = ({inactiveScroll}) => {
               setHover(false);
             }}
           >
-            <span className="header__optionLineOne ">
+            <span className="header__optionLineOne active">
               <img className="header__flag-img" src={usaflag} alt="" />
             </span>
-            <span className="header__optionLineTwo">
+            <span className="header__optionLineTwo active">
               <ArrowDropDownIcon className="arrow_icon" />
             </span>
 
@@ -118,12 +112,16 @@ const Header = ({inactiveScroll}) => {
               setSignHover(false);
             }}
           >
-            <NavLink to="/signin" className="isActive">
+            <NavLink to={user ? "" : "/signin"} className="isActive">
+              <div className="authentication" onClick={handleAuthentication}>
+                <span className="header__optionLineOne">
+                  Hello {!user ? "Guest" : user.email.split('@')[0]},
+                </span>
 
-               <span className="header__optionLineOne">Hello Guest,</span>
-
-            <span className="header__optionLineTwo">Sign In</span>
-       
+                <span className="header__optionLineTwo">
+                  {user ? "Sign Out" : "Sign In"}
+                </span>
+              </div>
             </NavLink>
 
             <span
@@ -136,8 +134,10 @@ const Header = ({inactiveScroll}) => {
           </div>
 
           <div className="header__option return__orders">
-            <span className="header__optionLineOne">Returns</span>
-            <span className="header__optionLineTwo">& Orders</span>
+            <NavLink to={user ? "/orders" : "/"} className="isActive">
+              <span className="header__optionLineOne">Returns</span>
+              <span className="header__optionLineTwo">& Orders</span>
+            </NavLink>
           </div>
 
           <div className="header__option">
@@ -149,14 +149,6 @@ const Header = ({inactiveScroll}) => {
             </NavLink>
           </div>
         </div>
-
-        <div
-          className={
-            effect ? "header__minisign_menu active" : "header__minisign_menu"
-          }
-        >
-          <MiniSignIn />
-        </div>
       </div>
       <div
         className={
@@ -167,7 +159,7 @@ const Header = ({inactiveScroll}) => {
           actionToPerform={() => {
             setClick(!click);
           }}
-          scroll= {inactiveScroll}
+          scroll={inactiveScroll}
         />
       </div>
     </div>
