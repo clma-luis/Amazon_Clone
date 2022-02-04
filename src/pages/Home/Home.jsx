@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Home.scss";
 import ProductsGroup from "../../components/ProductsGroup/ProductsGroup";
 import CarouselContainer from "../../components/Carousel/CarouselContainer";
@@ -38,6 +38,7 @@ const Home = () => {
         {OptionOne.map((item, index) => {
           return (
             <ProductPost
+              key={item.id}
               id={item.id}
               title={item.title}
               image={item.image}
@@ -54,7 +55,8 @@ const Home = () => {
           {data[11].data_products.map((product) => {
             return (
               <SliderCategory
-              route={data[11].id}
+                key={product.id}
+                route={data[11].id}
                 id={product.id}
                 title={product.title}
                 image={product.image}
@@ -70,6 +72,7 @@ const Home = () => {
           {data[9].data_products.map((product) => {
             return (
               <SliderCategory
+                key={product.id}
                 route={data[9].id}
                 id={product.id}
                 title={product.title}
@@ -104,6 +107,7 @@ const Home = () => {
         {OptionTwo.map((item, index) => {
           return (
             <ProductPost
+              key={item.id}
               id={item.id}
               title={item.title}
               image={item.image}
@@ -128,6 +132,7 @@ const Home = () => {
           {data[10].data_products.map((product) => {
             return (
               <SliderCategory
+                key={product.id}
               route={data[10].id}
                 id={product.id}
                 title={product.title}
@@ -144,6 +149,7 @@ const Home = () => {
           {data[12].data_products.map((product) => {
             return (
               <SliderCategory
+              key={product.id}
               route={data[12].id}
                 id={product.id}
                 title={product.title}
@@ -179,6 +185,7 @@ const Home = () => {
           {data[13].data_products.map((product) => {
             return (
               <SliderCategory
+              key={product.id}
               route={data[13].id}
                 id={product.id}
                 title={product.title}

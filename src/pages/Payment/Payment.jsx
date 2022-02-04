@@ -44,7 +44,7 @@ const Payment = () => {
     getClientSecret();
   }, [basket]);
 
-  console.log('this is a secret client', clientSecret);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

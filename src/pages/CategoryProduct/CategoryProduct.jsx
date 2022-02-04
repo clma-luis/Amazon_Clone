@@ -24,6 +24,7 @@ const CategoryProduct = () => {
         {data[index].data_products.map((product) => {
           return (
             <Product
+              key={product.id}
               route={id}
               id={product.id}
               title={product.title}

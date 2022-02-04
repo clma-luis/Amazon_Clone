@@ -113,7 +113,7 @@ const Footer = ({id}) => {
         <div className="footer__links">
           {FooterData.map((item, index) => {
             return (
-              <div className="footer__item">
+              <div key={item.title} className="footer__item">
                 <a href={item._url} target="_blank" rel="noreferrer">
                   <span className="title">{item.title}</span>
                   <span className="info">{item.info}</span>
